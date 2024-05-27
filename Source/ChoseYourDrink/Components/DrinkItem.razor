@@ -1,0 +1,19 @@
+﻿
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-3 p-2">
+    <div class="border-1 card m-2" @onclick="OnClick">
+        <div class="card-body">
+            <h4>@Item.DrinkName</h4>
+            <img src="@Item.ThumbUrl/preview" height="50px" width="50px" />
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public DrinkItemViewModel Item { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+}
