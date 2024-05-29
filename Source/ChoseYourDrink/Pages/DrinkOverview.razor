@@ -1,11 +1,10 @@
 ﻿@page "/drinkoverview"
+@page "/drinksbycategory"
 @using ChoseYourDrink.Services
 @inject IDrinkService drinkService;
 @inject NavigationManager NavigationManager;
 
-<PageTitle>DrinkOverview</PageTitle>
-
-<h3>DrinkOverview</h3>
+<PageTitle>Drinks per category</PageTitle>
 
 <p>
     @foreach (var drink in _drinks)
@@ -14,7 +13,7 @@
     }
 </p>
 
-@if (!_isLoading)
+@if (!_isLoading && _drinkItems.Count > 0)
 {
     <p>Selected category: @_selectedDrinkCategory?.StrCategory</p>
 
@@ -25,7 +24,7 @@
         }
     </p>
 }
-else
+else if (_isLoading)
 {
     <p>Loading...</p>
 }
@@ -65,6 +64,7 @@ else
         _isLoading = false;
         StateHasChanged();
     }
+
     private async Task ShowDetail(DrinkItemViewModel drinkItem)
     {
         DrinkItemViewModel item = await drinkService.GetDrinkDetailsAsync(drinkItem.DrinkId);
