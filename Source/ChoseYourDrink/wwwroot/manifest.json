@@ -1,21 +1,40 @@
 {
   "name": "Chose Your Drink",
+  "short_name": "ChoseYourDrink",
+  "id": "3BA883A4-3DC9-407A-B1E8-310590DDF867",
   "start_url": "./drinksbycategory/",
+  "description": "A test app to show the ingrediënts and instructions for cocktails.",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#03173d",
   "prefer_related_applications": false,
   "orientation": "portrait",
+  "author": "Stef Geysels",
   "icons": [
     {
       "src": "img/glass.png",
-      "sizes": "128x128",
+      "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot1.jpg",
+      "sizes": "1868x2187",
+      "type": "image/jpg",
+      "platform": "wide"
     },
     {
-      "src": "img/nope-not-here.webp",
-      "sizes": "144x144",
-      "type": "image/webp"
+      "src": "screenshots/screenshot2.jpg",
+      "sizes": "1868x2187",
+      "type": "image/jpg",
+      "platform": "wide"
+    },
+    {
+      "src": "screenshots/screenshot3.jpg",
+      "sizes": "1868x2187",
+      "type": "image/jpg",
+      "platform": "wide"
     }
   ]
 }
