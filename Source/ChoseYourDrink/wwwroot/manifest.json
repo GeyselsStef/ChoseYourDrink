@@ -1,0 +1,21 @@
+{
+  "name": "Chose Your Drink",
+  "start_url": "./drinksbycategory/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#03173d",
+  "prefer_related_applications": false,
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/glass.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "img/nope-not-here.webp",
+      "sizes": "144x144",
+      "type": "image/webp"
+    }
+  ]
+}
