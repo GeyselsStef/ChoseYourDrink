@@ -17,6 +17,13 @@
       "type": "image/png"
     }
   ],
+  "splash_screens": [
+    {
+      "src": "img/glass.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "screenshots": [
     {
       "src": "screenshots/screenshot1.jpg",
