@@ -14,8 +14,6 @@ namespace ChoseYourDrink.Services
         Task<DrinkItemViewModel> GetDrinkDetailsAsync(string drinkItemId);
     }
 
-
-
     public class DrinkService : IDrinkService
     {
         private readonly HttpClient _httpClient;
@@ -23,7 +21,6 @@ namespace ChoseYourDrink.Services
         public DrinkService(DrinksHttpClient httpClient)
         {
             this._httpClient = httpClient;
-            //_httpClient.BaseAddress = new Uri("https://www.thecocktaildb.com/api/json/v1/1/");
         }
 
         public async Task<IEnumerable<DrinkCategoryViewModel>> GetCategoriesAsync()
@@ -31,7 +28,7 @@ namespace ChoseYourDrink.Services
             var options = new JsonSerializerOptions { Converters = { new DrinksCategoryConverter() } };
             var drinkCategories = await _httpClient.GetFromJsonAsync<List<DrinkCategoryViewModel>>("list.php?c=list", options);
 
-            return drinkCategories;
+            return drinkCategories?? Enumerable.Empty<DrinkCategoryViewModel>();
         }
 
         public async Task<DrinkItemViewModel> GetDrinkDetailsAsync(string drinkItemId)
@@ -47,7 +44,7 @@ namespace ChoseYourDrink.Services
             var options = new JsonSerializerOptions { Converters = { new DrinkItemConverter() } };
             var drinkCategories = await _httpClient.GetFromJsonAsync<List<DrinkItemViewModel>>($"filter.php?c={category.StrCategory}", options);
 
-            return drinkCategories;
+            return drinkCategories??Enumerable.Empty<DrinkItemViewModel>();
         }
     }
 }

@@ -11,10 +11,21 @@
     <link href="ChoseYourDrink.styles.css" rel="stylesheet" />
     <link href="_content/Blazor.Bootstrap/blazor.bootstrap.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
+    <link rel="icon"  sizes="512x512" href="img/glass.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="img/glass.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
 </head>
 
 <body>
-    <div id="app">Loading...</div>
+    <div id="app">
+        <div style="position:absolute; top:30vh; width:100%; text-align:center">
+            <h1>Chose Your Drink</h1>
+            <div style="display:flex; gap:10px; justify-content:center; align-items:center">
+                <div class="spinner-border" role="status"></div>
+                The application is loading...
+            </div>
+        </div>
+    </div>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
