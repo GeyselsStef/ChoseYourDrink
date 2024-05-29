@@ -28,9 +28,7 @@
 	</ItemGroup>
 	
 	<ProjectExtensions>
-		<VisualStudio>
-			<UserProperties wwwroot_4manifest_4manifest_1json__JsonSchema="https://json.schemastore.org/web-manifest-combined.json" />
-		</VisualStudio>
+		<VisualStudio><UserProperties /></VisualStudio>
 	</ProjectExtensions>
 
 </Project>
