@@ -5,9 +5,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Blazored.Modal;
 using ChoseYourDrink.BLL;
-using AutoMapper;
 using System.Reflection;
-using AutoMapper.Features;
 using ChoseYourDrink.BLL.HttpClients;
 using Blazored.Toast;
 
