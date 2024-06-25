@@ -1,4 +1,6 @@
-﻿<div class="card">
+﻿@inject IUserService UserService
+
+<div class="card">
     <div class="card-header">
         <div class="row ml-1">
             <div class="col">@Item?.DrinkName</div>
@@ -27,7 +29,10 @@
     </div>
     <div class="card-footer">
         <div class="float-end">
-            @* <button class="btn btn-primary" @onclick="()=>ModalInstance.CloseAsync(ModalResult.Ok(Item))">Select</button> *@
+            @if (UserService.CurrentUser != null)
+            {
+                <button class="btn btn-primary" @onclick="()=>ModalInstance.CloseAsync(ModalResult.Ok(Item))">Add</button>
+            }
             <button class="btn btn-secondary" @onclick="()=>ModalInstance.CancelAsync()">Close</button>
         </div>
     </div>

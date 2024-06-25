@@ -1,8 +1,16 @@
 ﻿@page "/drinkoverview"
 @page "/drinksbycategory"
+@using ChoseYourDrink.BLL.BusinessObjects
 @using ChoseYourDrink.Services
-@inject IDrinkService drinkService;
+@using ChoseYourDrink.BLL
+@using System.Text.Json
+
+@inject ChoseYourDrink.Services.IDrinkService drinkService;
+@inject ChoseYourDrink.BLL.IDrinkService drinkOrderService;
+@inject AutoMapper.IMapper mapper;
+@inject IUserService userService;
 @inject NavigationManager NavigationManager;
+@inject IToastService ToastService;
 
 <PageTitle>Drinks per category</PageTitle>
 
@@ -76,5 +84,30 @@ else if (_isLoading)
 
         var detailForm = Modal.Show<DrinkItemDetail>(paramerters, options);
         var result = await detailForm.Result;
+
+        if (!result.Cancelled)
+        {
+            Console.WriteLine("Drink added to cart");
+            DrinkItemViewModel? drinkItemDetail = result.Data as DrinkItemViewModel;
+            if (drinkItemDetail != null)
+            {
+                Console.WriteLine(drinkItemDetail.DrinkName);
+
+                DrinkItemBO drinkItemBO = mapper.Map<DrinkItemBO>(drinkItemDetail);
+                UserBO userBO = mapper.Map<UserBO>(userService.CurrentUser);
+                HttpResponseMessage responseMessage = await drinkOrderService.OrderDrinkAsync(drinkItemBO, userBO, 1);
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Drink added to cart");
+                    ToastService.ShowSuccess($"Drink added to cart: {drinkItemDetail.DrinkName}");
+                }
+                else
+                {
+                    Console.WriteLine("Drink not added to cart");
+                    Console.WriteLine($"{responseMessage.StatusCode}: {await responseMessage.Content.ReadAsStringAsync()}");
+                }
+            }
+        }
     }
 }
