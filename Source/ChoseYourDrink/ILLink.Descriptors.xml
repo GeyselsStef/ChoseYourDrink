@@ -1,4 +1,5 @@
-﻿<linker>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<linker>
   <assembly fullname="Automapper" preserve="all"/>
   <assembly fullname="System.Runtime">
     <type fullname="System.Enum" preserve="all"/>
