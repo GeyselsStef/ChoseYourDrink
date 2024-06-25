@@ -24,6 +24,10 @@ builder.Services.AddTransient<IJSRunitmeServices, JSRunitmeServices>();
 builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
 
+// Fix for WASM
+var t = Enum.Parse<StringComparison>("CurrentCulture", true);
+var h = t.ToString();
+
 builder.Services.AddAutoMapper(cfg =>
 {
     cfg.AddMaps(Assembly.GetExecutingAssembly());
