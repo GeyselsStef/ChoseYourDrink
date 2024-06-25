@@ -28,7 +28,7 @@ namespace ChoseYourDrink.Services
             var options = new JsonSerializerOptions { Converters = { new DrinksCategoryConverter() } };
             var drinkCategories = await _httpClient.GetFromJsonAsync<List<DrinkCategoryViewModel>>("list.php?c=list", options);
 
-            return drinkCategories?? Enumerable.Empty<DrinkCategoryViewModel>();
+            return drinkCategories ?? Enumerable.Empty<DrinkCategoryViewModel>();
         }
 
         public async Task<DrinkItemViewModel> GetDrinkDetailsAsync(string drinkItemId)
@@ -44,7 +44,7 @@ namespace ChoseYourDrink.Services
             var options = new JsonSerializerOptions { Converters = { new DrinkItemConverter() } };
             var drinkCategories = await _httpClient.GetFromJsonAsync<List<DrinkItemViewModel>>($"filter.php?c={category.StrCategory}", options);
 
-            return drinkCategories??Enumerable.Empty<DrinkItemViewModel>();
+            return drinkCategories ?? Enumerable.Empty<DrinkItemViewModel>();
         }
     }
 }
