@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoseYourDrink", "ChoseYourDrink\ChoseYourDrink.csproj", "{F43615FE-6674-4C9F-BF13-B3247900A2EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoseYourDrink.BLL", "ChoseYourDrink.BLL\ChoseYourDrink.BLL.csproj", "{8265C775-C5E8-4514-A4CA-A0148485A76D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoseYourDrink.BLL", "ChoseYourDrink.BLL\ChoseYourDrink.BLL.csproj", "{8265C775-C5E8-4514-A4CA-A0148485A76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapper", "Mapper\Mapper.csproj", "{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
