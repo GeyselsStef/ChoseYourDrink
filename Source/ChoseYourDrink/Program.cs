@@ -9,6 +9,7 @@ using System.Reflection;
 using ChoseYourDrink.BLL.HttpClients;
 using Blazored.Toast;
 using AutoMapper.Internal;
+using AutoMapper;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -40,11 +41,21 @@ catch (Exception ex)
 	throw ;
 }
 
-builder.Services.AddAutoMapper(cfg =>
+
+builder.Services.AddSingleton(new MapperConfiguration(cfg =>
 {
     cfg.AddMaps(Assembly.GetExecutingAssembly());
     cfg.AddMaps(Assembly.GetAssembly(typeof(ChoseYourDrink.BLL.DrinkService)));
     cfg.ShouldMapProperty = p => p.SetMethod?.IsPublic ?? false;
-});
+}));
+builder.Services.AddScoped(sp => sp.GetRequiredService<MapperConfiguration>().CreateMapper());
+
+
+//builder.Services.AddAutoMapper(cfg =>
+//{
+//    cfg.AddMaps(Assembly.GetExecutingAssembly());
+//    cfg.AddMaps(Assembly.GetAssembly(typeof(ChoseYourDrink.BLL.DrinkService)));
+//    cfg.ShouldMapProperty = p => p.SetMethod?.IsPublic ?? false;
+//});
 
 await builder.Build().RunAsync();
