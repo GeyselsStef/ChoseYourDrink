@@ -27,19 +27,19 @@ builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
 
 // Fix for WASM
-try
-{
-    var a = typeof(Enum);
-var l = typeof(Enum).StaticGenericMethod("Parse", parametersCount: 2);
-var t = Enum.Parse<StringComparison>("CurrentCulture",true);
-var h = t.ToString();
+//try
+//{
+//    var a = typeof(Enum);
+//var l = typeof(Enum).StaticGenericMethod("Parse", parametersCount: 2);
+//var t = Enum.Parse<StringComparison>("CurrentCulture",true);
+//var h = t.ToString();
 
-}
-catch (Exception ex)
-{
+//}
+//catch (Exception ex)
+//{
 
-	throw ;
-}
+//	throw ;
+//}
 
 
 builder.Services.AddSingleton(new MapperConfiguration(cfg =>
