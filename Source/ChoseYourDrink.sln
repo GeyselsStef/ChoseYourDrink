@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoseYourDrink", "ChoseYourDrink\ChoseYourDrink.csproj", "{F43615FE-6674-4C9F-BF13-B3247900A2EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoseYourDrink.BLL", "ChoseYourDrink.BLL\ChoseYourDrink.BLL.csproj", "{8265C775-C5E8-4514-A4CA-A0148485A76D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoseYourDrink.BLL", "ChoseYourDrink.BLL\ChoseYourDrink.BLL.csproj", "{8265C775-C5E8-4514-A4CA-A0148485A76D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
