@@ -8,7 +8,12 @@ jobs:
     runs-on: windows-latest
     name: just for test
     steps:
+      - name: Show environment v1
+        run: env | grep ^GITHUB
+      - name: Show ref v1
+        run: echo "===============> Version from $GITHUB_REF"
       - run: |
+          echo ${GITHUB_REF##*/}
           $branch = ${GITHUB_REF##*/}
           Write-Host 'branch: $branch'
           echo "branch = $branch"
