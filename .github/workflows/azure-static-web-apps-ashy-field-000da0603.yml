@@ -17,10 +17,11 @@ jobs:
           echo "${GITHUB_REF##*/}"
           $branch = ${GITHUB_REF##*/}
           Write-Host 'branch: $branch'
+          $branch = github.ref
           echo "branch = $branch"
 
   build_and_deploy_job:
-    if: $GITHUB_REF == 'refs/heads/Test'
+    if: github.ref == 'refs/heads/Test'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
