@@ -8,6 +8,7 @@ using ChoseYourDrink.BLL;
 using System.Reflection;
 using ChoseYourDrink.BLL.HttpClients;
 using Blazored.Toast;
+using AutoMapper.Internal;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -25,8 +26,19 @@ builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
 
 // Fix for WASM
-var t = Enum.Parse<StringComparison>("CurrentCulture", true);
+try
+{
+    var a = typeof(Enum);
+var l = typeof(Enum).StaticGenericMethod("Parse", parametersCount: 2);
+var t = Enum.Parse<StringComparison>("CurrentCulture",true);
 var h = t.ToString();
+
+}
+catch (Exception ex)
+{
+
+	throw ;
+}
 
 builder.Services.AddAutoMapper(cfg =>
 {
