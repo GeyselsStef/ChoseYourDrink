@@ -21,7 +21,7 @@ jobs:
           echo "branch = $branch"
 
   build_and_deploy_job:
-    if: github.ref == 'refs/heads/Test'
+    if: $env:GITHUB_REF == 'refs/heads/Test'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
