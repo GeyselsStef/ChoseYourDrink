@@ -9,7 +9,7 @@ jobs:
     name: just for test
     steps:
       - run: |
-          $branch = github.ref
+          $branch = ${GITHUB_REF##*/}
           Write-Host 'branch: $branch'
           echo "branch = $branch"
 
