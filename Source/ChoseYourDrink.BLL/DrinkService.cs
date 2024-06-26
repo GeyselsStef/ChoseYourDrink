@@ -2,7 +2,6 @@
 using ChoseYourDrink.BLL.HttpClients;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -29,7 +28,7 @@ namespace ChoseYourDrink.BLL
             }
         }
 
-        public DrinkService(ILogger<DrinkService> logger, IConfiguration configuration,OrderApiHttpClient orderApi)
+        public DrinkService(ILogger<DrinkService> logger, IConfiguration configuration, OrderApiHttpClient orderApi)
         {
             this._logger = logger;
             this._configuration = configuration;
@@ -52,7 +51,7 @@ namespace ChoseYourDrink.BLL
                 {
                     DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault
                 };
-                HttpResponseMessage responseMessage = await _orderApi.PostAsJsonAsync(ApiEndpoints["orderDrink"],drinkOrderItem,jsonSerializerOptions);
+                HttpResponseMessage responseMessage = await _orderApi.PostAsJsonAsync(ApiEndpoints["orderDrink"], drinkOrderItem, jsonSerializerOptions);
 
                 return responseMessage;
             }

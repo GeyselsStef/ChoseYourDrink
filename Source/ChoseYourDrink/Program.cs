@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Blazored.Modal;
 using ChoseYourDrink.BLL;
-using System.Reflection;
 using ChoseYourDrink.BLL.HttpClients;
 using Blazored.Toast;
+using Mapper;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -24,11 +24,8 @@ builder.Services.AddTransient<IJSRunitmeServices, JSRunitmeServices>();
 builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
 
-builder.Services.AddAutoMapper(cfg =>
-{
-    cfg.AddMaps(Assembly.GetExecutingAssembly());
-    cfg.AddMaps(Assembly.GetAssembly(typeof(ChoseYourDrink.BLL.DrinkService)));
-    cfg.ShouldMapProperty = p => p.SetMethod?.IsPublic ?? false;
-});
+builder.Services.AddMapper();
+
+Console.WriteLine("Hello, World!");
 
 await builder.Build().RunAsync();
