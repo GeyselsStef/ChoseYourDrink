@@ -9,6 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChoseYourDrink.BLL", "Chose
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapper", "Mapper\Mapper.csproj", "{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{F9849DEC-A10A-4529-84BA-BB5AA14035D0}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\azure-static-web-apps-ashy-field-000da0603.yml = ..\.github\workflows\azure-static-web-apps-ashy-field-000da0603.yml
+		..\.github\workflows\azure-static-web-apps-ashy-field-000da0603_Test.yml = ..\.github\workflows\azure-static-web-apps-ashy-field-000da0603_Test.yml
+		..\.github\workflows\azure-static-web-apps-proud-wave-071652803.yml = ..\.github\workflows\azure-static-web-apps-proud-wave-071652803.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
