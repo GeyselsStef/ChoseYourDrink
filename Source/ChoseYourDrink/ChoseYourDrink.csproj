@@ -10,13 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="MapperProfiles\**" />
-    <Content Remove="MapperProfiles\**" />
-    <EmbeddedResource Remove="MapperProfiles\**" />
-    <None Remove="MapperProfiles\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\img\nope-not-here.webp" />
   </ItemGroup>
 
@@ -48,7 +41,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChoseYourDrink.BLL\ChoseYourDrink.BLL.csproj" />
-    <ProjectReference Include="..\Mapper\Mapper.csproj" />
   </ItemGroup>
 
   <ProjectExtensions>

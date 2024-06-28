@@ -7,7 +7,6 @@ using Blazored.Modal;
 using ChoseYourDrink.BLL;
 using ChoseYourDrink.BLL.HttpClients;
 using Blazored.Toast;
-using Mapper;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -26,8 +25,6 @@ builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-
-builder.Services.AddMapper();
 
 Console.WriteLine("Hello, World!");
 

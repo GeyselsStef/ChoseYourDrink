@@ -7,8 +7,7 @@
 
 @inject ChoseYourDrink.Services.IDrinkService drinkService;
 @inject ChoseYourDrink.BLL.IDrinkService drinkOrderService;
-@inject Mapper.IMapper mapper;
-@inject AutoMapper.IMapper autoMapper;
+@inject AutoMapper.IMapper Mapper;
 @inject IUserService userService;
 @inject NavigationManager NavigationManager;
 @inject IToastService ToastService;
@@ -94,8 +93,8 @@ else if (_isLoading)
             {
                 Console.WriteLine(drinkItemDetail.DrinkName);
 
-                DrinkItemBO drinkItemBO = mapper.Map<DrinkItemBO>(drinkItemDetail);
-                UserBO userBO = mapper.Map<UserBO>(userService.CurrentUser);
+                DrinkItemBO drinkItemBO = Mapper.Map<DrinkItemBO>(drinkItemDetail);
+                UserBO userBO = Mapper.Map<UserBO>(userService.CurrentUser);
                 HttpResponseMessage responseMessage = await drinkOrderService.OrderDrinkAsync(drinkItemBO, userBO, 1);
 
                 if (responseMessage.IsSuccessStatusCode)
