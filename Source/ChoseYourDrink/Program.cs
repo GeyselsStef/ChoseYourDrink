@@ -26,6 +26,6 @@ builder.Services.AddBlazoredToast();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
-Console.WriteLine("Hello, World! Met Automapper");
+Console.WriteLine("Hello, World! Met Automapper => BLL");
 
 await builder.Build().RunAsync();
