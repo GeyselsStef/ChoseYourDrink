@@ -6,11 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="LinkerConfig.xml">
-      <LogicalName>$(MSBuildProjectName).xml</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
+  <!--<ItemGroup>
+    <None Remove="LinkerConfig.xml" />
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />

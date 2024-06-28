@@ -9,9 +9,9 @@
     <LinkerConfig>LinkerConfig.xml</LinkerConfig>-->
   </PropertyGroup>
 
-  <!--<ItemGroup>
+  <ItemGroup>
     <None Remove="LinkerConfig.xml" />
-  </ItemGroup>-->
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\img\nope-not-here.webp" />
