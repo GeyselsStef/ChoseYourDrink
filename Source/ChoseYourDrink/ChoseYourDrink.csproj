@@ -5,20 +5,21 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-    <BlazorWebAssemblyEnableLinker>true</BlazorWebAssemblyEnableLinker>
-    <LinkerConfig>LinkerConfig.xml</LinkerConfig>
+    <!--<BlazorWebAssemblyEnableLinker>true</BlazorWebAssemblyEnableLinker>
+    <LinkerConfig>LinkerConfig.xml</LinkerConfig>-->
   </PropertyGroup>
+
+  <!--<ItemGroup>
+    <None Remove="LinkerConfig.xml" />
+  </ItemGroup>-->
 
   <ItemGroup>
     <None Include="wwwroot\img\nope-not-here.webp" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="LinkerConfig.xml">
-      <LogicalName>$(MSBuildProjectName).xml</LogicalName>
-    </EmbeddedResource>
+  <!--<ItemGroup>
     <BlazorLinkerDescriptor Include="LinkerConfig.xml" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
