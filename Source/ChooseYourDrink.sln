@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChooseYourDrink", "ChooseYourDrink\ChooseYourDrink.csproj", "{F43615FE-6674-4C9F-BF13-B3247900A2EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChooseYourDrink.BLL", "ChooseYourDrink.BLL\ChooseYourDrink.BLL.csproj", "{8265C775-C5E8-4514-A4CA-A0148485A76D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mapper", "Mapper\Mapper.csproj", "{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{F9849DEC-A10A-4529-84BA-BB5AA14035D0}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\azure-static-web-apps-ashy-field-000da0603.yml = ..\.github\workflows\azure-static-web-apps-ashy-field-000da0603.yml
+		..\.github\workflows\azure-static-web-apps-ashy-field-000da0603_Test.yml = ..\.github\workflows\azure-static-web-apps-ashy-field-000da0603_Test.yml
+		..\.github\workflows\azure-static-web-apps-proud-wave-071652803.yml = ..\.github\workflows\azure-static-web-apps-proud-wave-071652803.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F43615FE-6674-4C9F-BF13-B3247900A2EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43615FE-6674-4C9F-BF13-B3247900A2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43615FE-6674-4C9F-BF13-B3247900A2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43615FE-6674-4C9F-BF13-B3247900A2EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8265C775-C5E8-4514-A4CA-A0148485A76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DB3B01-34F8-4CB9-A80F-D83EEACF6B58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF4C5D49-B464-400A-A9CD-1576A182F419}
+	EndGlobalSection
+EndGlobal

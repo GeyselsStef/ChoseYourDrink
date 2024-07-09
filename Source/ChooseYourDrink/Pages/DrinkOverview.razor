@@ -1,0 +1,113 @@
+﻿@page "/drinkoverview"
+@page "/drinksbycategory"
+@using ChooseYourDrink.BLL.BusinessObjects
+@using ChooseYourDrink.Services
+@using ChooseYourDrink.BLL
+@using System.Text.Json
+
+@inject ChooseYourDrink.Services.IDrinkService drinkService;
+@inject ChooseYourDrink.BLL.IDrinkService drinkOrderService;
+@inject AutoMapper.IMapper Mapper;
+@inject IUserService userService;
+@inject NavigationManager NavigationManager;
+@inject IToastService ToastService;
+
+<PageTitle>Drinks per category</PageTitle>
+
+<p>
+    @foreach (var drink in _drinks)
+    {
+        <div class="btn btn-primary m-2" @onclick="()=>NavigateToDrinkCategory(drink)">@drink.StrCategory</div>
+    }
+</p>
+
+@if (!_isLoading && _drinkItems.Count > 0)
+{
+    <p>Selected category: @_selectedDrinkCategory?.StrCategory</p>
+
+    <p class="row">
+        @foreach (var drink in _drinkItems)
+        {
+            <DrinkItem Item="drink" @onclick="()=>ShowDetail(drink)" />
+        }
+    </p>
+}
+else if (_isLoading)
+{
+    <p>Loading...</p>
+}
+
+@code {
+
+    private List<DrinkCategoryViewModel> _drinks = new List<DrinkCategoryViewModel>();
+
+    private DrinkCategoryViewModel? _selectedDrinkCategory = null;
+
+    private List<DrinkItemViewModel> _drinkItems = new List<DrinkItemViewModel>();
+
+    private DrinkItemViewModel? _selectedDrinkItem = null;
+
+    private bool _isLoading = false;
+
+    [CascadingParameter]
+    public IModalService Modal { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var drinks = await drinkService.GetCategoriesAsync();
+        Console.WriteLine(drinks);
+        _drinks = drinks?.OrderBy(x => x.StrCategory).ToList() ?? new List<DrinkCategoryViewModel>();
+    }
+
+    private async void NavigateToDrinkCategory(DrinkCategoryViewModel drinkCategory)
+    {
+        _isLoading = true;
+        _drinkItems?.Clear();
+
+        IEnumerable<DrinkItemViewModel> drinks = await drinkService.GetDrinksByCategoryAsync(drinkCategory);
+
+        _drinkItems = drinks?.OrderBy(x => x.DrinkName).ToList() ?? new List<DrinkItemViewModel>();
+
+        _selectedDrinkCategory = drinkCategory;
+        _isLoading = false;
+        StateHasChanged();
+    }
+
+    private async Task ShowDetail(DrinkItemViewModel drinkItem)
+    {
+        DrinkItemViewModel item = await drinkService.GetDrinkDetailsAsync(drinkItem.DrinkId);
+
+        _selectedDrinkItem = item;
+
+        var paramerters = new ModalParameters().Add("Item", item);
+        var options = new ModalOptions() { Size = ModalSize.Large };
+
+        var detailForm = Modal.Show<DrinkItemDetail>(paramerters, options);
+        var result = await detailForm.Result;
+
+        if (!result.Cancelled)
+        {
+            Console.WriteLine("Drink added to cart");
+            DrinkItemViewModel? drinkItemDetail = result.Data as DrinkItemViewModel;
+            if (drinkItemDetail != null)
+            {
+                Console.WriteLine(drinkItemDetail.DrinkName);
+
+                DrinkItemBO drinkItemBO = Mapper.Map<DrinkItemBO>(drinkItemDetail);
+                UserBO userBO = Mapper.Map<UserBO>(userService.CurrentUser);
+                HttpResponseMessage responseMessage = await drinkOrderService.OrderDrinkAsync(drinkItemBO, userBO, 1);
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Drink added to cart");
+                    ToastService.ShowSuccess($"Drink added to cart: {drinkItemDetail.DrinkName}");
+                }
+                else
+                {
+                    Console.WriteLine("Drink not added to cart");
+                    Console.WriteLine($"{responseMessage.StatusCode}: {await responseMessage.Content.ReadAsStringAsync()}");
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+@inject IUserService UserService
+
+<BlazoredToasts Position="Blazored.Toast.Configuration.ToastPosition.BottomRight" Timeout="10" />
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            @if (UserService.CurrentUser == null)
+            {
+                <a href="/SignIn">SignIn</a>
+            }
+            else
+            {
+                <div class="top-row px-4">@UserService.CurrentUser</div>
+            }
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        UserService.OnChange += StateHasChanged;
+        await UserService.GetUserAsync();
+        await base.OnInitializedAsync();
+    }
+}
